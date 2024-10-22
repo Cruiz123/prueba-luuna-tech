@@ -1,79 +1,84 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# GitHub Search App
 
-# Getting Started
+## Descripción
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+**GitHub Search App** es una aplicación móvil desarrollada en **React Native CLI** que permite a los usuarios buscar tanto usuarios como repositorios en GitHub, y ver detalles relacionados con ellos en tiempo real a través de la API de GitHub.
 
-## Step 1: Start the Metro Server
+## Características
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- **Búsqueda de Repositorios**: Los usuarios pueden buscar repositorios por nombre y obtener información relevante como el propietario, el número de estrellas y la descripción.
+- **Búsqueda de Usuarios**: Permite la búsqueda de usuarios por su nombre o alias de GitHub, mostrando detalles básicos como el nombre, ubicación y cantidad de repositorios públicos.
+- **Visualización Detallada**: Acceso a más detalles sobre los usuarios, incluidos sus repositorios, seguidores y otras estadísticas importantes.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Instalación
 
-```bash
-# using npm
-npm start
+Sigue los pasos a continuación para instalar y ejecutar la aplicación en tu entorno local.
 
-# OR using Yarn
-yarn start
-```
+1. Clona el repositorio:
 
-## Step 2: Start your Application
+   ```sh
+   git clone https://github.com/tu-usuario/githubSearchApp.git
+   ```
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+2. Navega al directorio del proyecto:
 
-### For Android
+   ```sh
+   cd githubSearchApp
+   ```
 
-```bash
-# using npm
-npm run android
+3. Instala las dependencias:
 
-# OR using Yarn
-yarn android
-```
+   ```sh
+   npm install
+   ```
 
-### For iOS
+## Uso
 
-```bash
-# using npm
-npm run ios
+1. Inicia la aplicación en el emulador o dispositivo real:
+   - Para Android:
 
-# OR using Yarn
-yarn ios
-```
+     ```sh
+     npx react-native run-android
+     ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+   - Para iOS:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+     ```sh
+     npx react-native run-ios
+     ```
 
-## Step 3: Modifying your App
+2. La aplicación se ejecutará en el dispositivo o emulador seleccionado.
 
-Now that you have successfully run the app, let's modify it.
+## Organización de Carpetas
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+El proyecto sigue una estructura modular para facilitar la escalabilidad y el mantenimiento.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+- `src/`: Código fuente de la aplicación.
+  - `components/`: Componentes reutilizables como botones, tarjetas, etc.
+  - `screens/`: Pantallas principales de la aplicación.
+  - `services/`: Lógica de conexión con la API de GitHub, utilizando fetch para realizar las solicitudes.
+  - `navigation/`: Configuración de las rutas de la aplicación usando React Navigation.
+  - `styles/`: Estilos globales y específicos de componentes en formato StyleSheet.
+  - `utils/`: Funciones auxiliares y utilidades generales.
+  
+- `ios/` y `android/`: Directorios específicos de cada plataforma.
 
-## Congratulations! :tada:
+## Tecnologías Utilizadas
 
-You've successfully run and modified your React Native App. :partying_face:
+- **React Native CLI**: Framework para desarrollar aplicaciones móviles nativas con JavaScript.
+- **Fetch API**: Utilizada para hacer peticiones a la API de GitHub.
+- **React Navigation (v6)**: Librería para gestionar la navegación en la aplicación.
+- **TypeScript**: Tipado estático para mejorar la seguridad y robustez del código.
 
-### Now what?
+## Compatibilidad
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+La aplicación es compatible con:
 
-# Troubleshooting
+- **Android**: versión 5.0 (Lollipop) en adelante.
+- **iOS**: versión 11.0 en adelante.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Recursos Adicionales
 
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- [Documentación de React Native](https://reactnative.dev/docs/getting-started)
+- [Documentación de React Navigation](https://reactnavigation.org/docs/getting-started)
+- [Documentación de la API de GitHub](https://docs.github.com/en/rest)
