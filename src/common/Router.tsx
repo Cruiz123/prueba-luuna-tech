@@ -5,12 +5,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { RootStackParamsList } from '../types/global'
 import { HomeScreen, UserSearchScreen, RepoSearchScreen, DetailsUserScreen } from '../screens'
 import { ROUTER } from '../utils/constants'
+import FlashMessage from 'react-native-flash-message'
+import { StatusBar } from 'react-native'
+import { COLORS } from '../utils/theme'
 
 const Stack = createNativeStackNavigator<RootStackParamsList>()
 
 const Router = () => {
     return (
         <>
+            <StatusBar />
             <NavigationContainer>
                 <Stack.Navigator initialRouteName={ROUTER.Home} screenOptions={{ headerShown: false }}>
                     <Stack.Screen
@@ -47,6 +51,7 @@ const Router = () => {
                     />
                 </Stack.Navigator>
             </NavigationContainer>
+            <FlashMessage position='top' floating={true} />
         </>
     )
 }

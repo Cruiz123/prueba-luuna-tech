@@ -13,7 +13,7 @@ export default {
         // marginTop: 100,
     },
     label: {
-        fontSize: RFValue(SIZES.h1),
+        fontSize: RFValue(SIZES.h3),
         color: COLORS.white,
         fontFamily: 'SpaceMono-Bold',
     },

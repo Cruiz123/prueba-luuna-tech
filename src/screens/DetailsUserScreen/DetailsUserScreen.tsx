@@ -26,17 +26,17 @@ const DetailsUserScreen = ({ route, navigation }: Props) => {
     }
 
     return (
-        <ScrollView keyboardDismissMode='interactive' keyboardShouldPersistTaps='always' style={styles.scroll}>
-            <Container
-                label='Details User'
-                icon={
-                    <TouchableOpacity onPress={goBack}>
-                        <CircleArrowLeft width={RFValue(30)} height={RFValue(30)} fill={COLORS.white} />
-                    </TouchableOpacity>
-                }>
+        <Container
+            label='Details User'
+            icon={
+                <TouchableOpacity onPress={goBack}>
+                    <CircleArrowLeft width={RFValue(25)} height={RFValue(25)} fill={COLORS.white} />
+                </TouchableOpacity>
+            }>
+            <ScrollView keyboardDismissMode='interactive' keyboardShouldPersistTaps='always' style={styles.scroll}>
                 {!isLoading && <CardInformation information={data} />}
-            </Container>
-        </ScrollView>
+            </ScrollView>
+        </Container>
     )
 }
 

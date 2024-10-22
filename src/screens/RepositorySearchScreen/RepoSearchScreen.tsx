@@ -126,7 +126,7 @@ const RepoSearchScreen = ({ navigation }: Props) => {
                                 <View>
                                     <Text
                                         style={{
-                                            fontSize: RFValue(16),
+                                            fontSize: RFValue(14),
                                             fontFamily: 'SpaceMono-Bold',
                                             color: COLORS.white,
                                         }}>
@@ -155,13 +155,12 @@ const RepoSearchScreen = ({ navigation }: Props) => {
                                         style={{
                                             backgroundColor: COLORS.blue,
                                             width: 100,
-                                            flex: 1,
                                             borderRadius: 12,
                                             alignItems: 'center',
                                         }}>
                                         <Text
                                             style={{
-                                                fontSize: RFValue(16),
+                                                fontSize: RFValue(12),
                                                 fontFamily: 'SpaceMono-Bold',
                                                 color: COLORS.white,
                                             }}>

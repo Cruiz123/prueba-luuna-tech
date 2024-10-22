@@ -96,42 +96,6 @@ const UserSearchScreen = ({ navigation }: Props) => {
                     keyExtractor={(_, index) => index.toString()}
                     renderItem={({ item }) => (
                         <CardUsers onPress={() => navigation.navigate(ROUTER.DetailsUser, { searchQuery: item.login })} username={item.login} />
-                        // <TouchableOpacity
-                        //     style={{
-                        //         padding: SIZES.font,
-                        //         borderRadius: RFValue(12),
-                        //         backgroundColor: COLORS.secondaryColor,
-                        //         marginTop: RFValue(16),
-                        //     }}
-                        //     onPress={() => navigation.navigate(ROUTER.DetailsUser, { searchQuery: item.login })}>
-                        //     <View style={{ flexDirection: 'row' }}>
-                        //         <Image
-                        //             source={{ uri: item.avatar_url }}
-                        //             style={{ width: RFValue(70), height: RFValue(70) }}
-                        //             resizeMode='contain'
-                        //             borderRadius={50}
-                        //         />
-                        //         <View style={{ flexDirection: 'row', gap: 16 }}>
-                        //             <Text
-                        //                 style={{
-                        //                     fontSize: RFValue(16),
-                        //                     fontFamily: 'SpaceMono-Bold',
-                        //                     color: COLORS.white,
-                        //                 }}>
-                        //                 {item.name} {item.login}
-                        //             </Text>
-
-                        //             <Text
-                        //                 style={{
-                        //                     fontSize: RFValue(14),
-                        //                     fontFamily: 'SpaceMono-Bold',
-                        //                     color: COLORS.blue,
-                        //                 }}>
-                        //                 {item.location}
-                        //             </Text>
-                        //         </View>
-                        //     </View>
-                        // </TouchableOpacity>
                     )}
                     ListEmptyComponent={
                         <View style={{ alignItems: 'center', marginTop: 20 }}>
