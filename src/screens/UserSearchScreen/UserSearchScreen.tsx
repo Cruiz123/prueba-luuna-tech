@@ -31,20 +31,23 @@ const UserSearchScreen = ({ navigation }: Props) => {
             setInformationUser(data.items)
             reset()
         },
-        onError: (error) => {
-           errorMessage(error as string)
+        onError: (error: any) => {
+            const statusCode = error.response?.status
+            let message = 'An unexpected error occurred.'
+
+            if (statusCode === 404) {
+                message = 'User not found.'
+            } else if (statusCode === 403) {
+                message = 'Access forbidden. Check your API rate limits.'
+            } else if (statusCode === 503) {
+                message = 'Service unavailable. Try again later.'
+            }
+            errorMessage(message)
         },
     })
 
-    
-
-    const onSubmit = async (data: userFormData) => {
-        mutate(data.username)
-    }
-
-    const goBack = () => {
-        navigation.goBack()
-    }
+    const onSubmit = (data: userFormData) => mutate(data.username)
+    const goBack = () => navigation.goBack()
 
     return (
         <Container
@@ -95,7 +98,10 @@ const UserSearchScreen = ({ navigation }: Props) => {
                     data={informationUser}
                     keyExtractor={(_, index) => index.toString()}
                     renderItem={({ item }) => (
-                        <CardUsers onPress={() => navigation.navigate(ROUTER.DetailsUser, { searchQuery: item.login })} username={item.login} />
+                        <CardUsers
+                            onPress={() => navigation.navigate(ROUTER.DetailsUser, { searchQuery: item.login })}
+                            username={item.login}
+                        />
                     )}
                     ListEmptyComponent={
                         <View style={{ alignItems: 'center', marginTop: 20 }}>

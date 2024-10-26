@@ -7,7 +7,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackParamsList } from '../../types/global'
 import useStyles from '../../hooks/useStyles'
 import styled from './styled'
-import { RFValue } from '../../utils/utils'
+import { errorMessage, RFValue } from '../../utils/utils'
 import CircleArrowLeft from '../../assets/images/circle_arrow_left.svg'
 import { COLORS } from '../../utils/theme'
 
@@ -19,11 +19,22 @@ const DetailsUserScreen = ({ route, navigation }: Props) => {
     const searchQuery = route.params.searchQuery
     const { data, isLoading } = useQuery(['users', searchQuery], () => fetchGithubUserDetails(searchQuery), {
         enabled: searchQuery.length > 0,
+        onError: (error: any) => {
+            const statusCode = error.response?.status
+            let message = 'An unexpected error occurred.'
+
+            if (statusCode === 404) {
+                message = 'User not found.'
+            } else if (statusCode === 403) {
+                message = 'Access forbidden. Check your API rate limits.'
+            } else if (statusCode === 503) {
+                message = 'Service unavailable. Try again later.'
+            }
+            errorMessage(message)
+        },
     })
 
-    const goBack = () => {
-        navigation.goBack()
-    }
+    const goBack = () => navigation.goBack()
 
     return (
         <Container

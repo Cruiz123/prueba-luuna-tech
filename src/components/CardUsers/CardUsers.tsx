@@ -14,8 +14,17 @@ const CardUsers = ({ onPress, username }: CardUsersProps) => {
     const { data, isLoading } = useQuery(['users', username], () => fetchGithubUserDetails(username), {
         enabled: username.length > 0,
         onError: (error: any) => {
-            console.log(error)
-            errorMessage(error.message)
+            const statusCode = error.response?.status
+            let message = 'An unexpected error occurred.'
+
+            if (statusCode === 404) {
+                message = 'User not found.'
+            } else if (statusCode === 403) {
+                message = 'Access forbidden. Check your API rate limits.'
+            } else if (statusCode === 503) {
+                message = 'Service unavailable. Try again later.'
+            }
+            errorMessage(message)
         },
     })
 
